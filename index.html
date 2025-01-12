@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+            <script type="text/javascript">
+            (function(){
+            emailjs.init({
+                publicKey: "B3dalWWS812TZqAOf",
+            });
+            })();
+        </script> 
+</head>
+<body>
+    <div class="login">
+        <form>
+            <h1>LOG IN</h1>
+            <label>Enter Username:</label><input type="text" id="userName">
+            <label>Enter Email:  </label> <input type="text" id="email">
+            <label >Enter Subject :</label> <input type="text" id="subject">
+            <label >Enter Message : </label><input type="text" id="message"> 
+            <br>
+            <button onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+
+
+    <script>
+        function submitForm(){
+            let user_Name = document.getElementById("userName").value ;
+            let email = document.getElementById("email").value ;
+            let subject = document.getElementById("subject").value ;
+            let message = document.getElementById("message").value ;
+
+  
+            let object = {
+                user_name : user_Name,
+                mail : email,
+                subject : subject,
+                message : message,
+            }
+            
+            emailjs.send("service_u1ej3ua" , "template_x98wjdc" , object )
+            .then((res) => {
+                alert("Mail Sent")
+                console.log(res)
+            })
+            .catch((error)=> {
+                console.log(error)
+            })
+        }
+    </script>
+
+
+
+
+</body>
+</html>
