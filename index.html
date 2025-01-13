@@ -18,19 +18,18 @@
 </head>
 <body>
     <div class="login">
-        <form>
-            <h1>LOG IN</h1>
-            <label>Enter Username:</label><input type="text" id="userName">
-            <label>Enter Email:  </label> <input type="text" id="email">
-            <label >Enter Subject :</label> <input type="text" id="subject">
-            <label >Enter Message : </label><input type="text" id="message"> 
-            <br>
-            <button onclick="submitForm()">Submit</button>
-        </form>
+            <div class="form">
+                <h1>LOG IN</h1>
+                <label>Enter Username:</label><input type="text" id="userName">
+                <label>Enter Email:  </label> <input type="text" id="email">
+                <label >Enter Subject :</label> <input type="text" id="subject">
+                <label >Enter Message : </label><input type="text" id="message"> 
+                <br>
+                <button onclick="submitForm()">Submit</button>
+            </div>
     </div>
 
-
-
+   
     <script>
         function submitForm(){
             let user_Name = document.getElementById("userName").value ;
@@ -46,12 +45,12 @@
                 message : message,
             }
             
-            emailjs.send("service_u1ej3ua" , "template_x98wjdc" , object )
+            emailjs.send("service_u1ej3ua" , " template_x98wjdc" , object )
             .then((res) => {
                 alert("Mail Sent")
                 console.log(res)
             })
-            .catch((error)=> {
+            .catch((error) => {
                 console.log(error)
             })
         }
